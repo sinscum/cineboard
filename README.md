@@ -61,11 +61,11 @@ Create the following directories in your docker folder:
  - ./docker/CineBoard/custom
 
 ```ya
-version: '2.4'
+version: "3.8"
 
 services:
   CineBoard:
-    image: sinscum/CineBoard
+    image: sinscum/cineboard:latest
     container_name: CineBoard
     environment:
       TZ: America/New_York
@@ -74,7 +74,7 @@ services:
       - ./docker/CineBoard/config:/usr/src/app/config
       - ./docker/CineBoard/custom:/usr/src/app/public/custom
     ports:
-      - 9876:3000
+      - "9876:3000"
     restart: unless-stopped
 ```
 ### <ins>Docker CLI (X86, ARM64)</ins>
@@ -86,11 +86,11 @@ Create the following directories in your docker folder:
 ```
 docker run -d --name CineBoard \
 -p 9876:3000 \
--v ~/docker/CineBoard/config:/usr/src/app/config \
--v ~/docker/CineBoard/custom:/usr/src/app/public/custom \
+-v ./docker/CineBoard/config:/usr/src/app/config \
+-v ./docker/CineBoard/custom:/usr/src/app/public/custom \
 -e TZ=America/New_York \
 --restart=always \
-sinscum/CineBoard
+sinscum/cineboard:latest
 ```
 
 #### Details

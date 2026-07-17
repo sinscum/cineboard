@@ -1,8 +1,8 @@
-version: '2.4'
+version: "3.8"
 
 services:
   cineboard:
-    image: cineboard
+    image: sinscum/cineboard:latest
     container_name: cineboard
     build:
       context: .
@@ -13,8 +13,9 @@ services:
       BASEPATH: ""
       ET: "false"
     volumes:
-      - ~/docker/cineboard/custom:/usr/src/app/public/custom
-      - ~/docker/cineboard/config:/usr/src/app/config
+      - ./docker/CineBoard/custom:/usr/src/app/public/custom
+      - ./docker/CineBoard/config:/usr/src/app/config
     ports:
-      - 9876:3000
+      - "9876:3000"
+    restart: unless-stopped
 

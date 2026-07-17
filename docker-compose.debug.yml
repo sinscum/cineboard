@@ -1,18 +1,19 @@
-version: '3.4'
+version: "3.8"
 
 services:
   cineboard:
-    image: cineboard
+    image: sinscum/cineboard:latest
     build:
       context: .
       dockerfile: ./Dockerfile
     environment:
       NODE_ENV: development
       TZ: "Australia/Brisbane"
-      BASEURL: ""
+      BASEPATH: ""
     ports:
-      - 3000:3000
-      - 9229:9229
+      - "3000:3000"
+      - "9229:9229"
     command: ["node", "--inspect=0.0.0.0:9229", "index.js"]
+    restart: unless-stopped
 
 
