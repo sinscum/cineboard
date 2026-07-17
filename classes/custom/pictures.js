@@ -95,8 +95,8 @@ async GetPictures(theme, hasThemes, hasArt) {
   let picCards = [];
   // Example format needed for pictures object
   // let pics = [
-  //   {url: '/custom/posterr1.jpg', theme: '/custom/posterr1.mp3', art: '/custom/posterr1-art.jpg'},
-  //   {url: '/custom/posterr2.jpg', theme: '/custom/posterr2.mp3', art: '/custom/posterr2-art.jpg'},
+  //   {url: '/custom/cineboard1.jpg', theme: '/custom/cineboard1.mp3', art: '/custom/cineboard1-art.jpg'},
+  //   {url: '/custom/cineboard2.jpg', theme: '/custom/cineboard2.mp3', art: '/custom/cineboard2-art.jpg'},
   //   {url: '/custom/texas.gif', theme: '/custom/texas.mp3', art: '/custom/texas.jpg'},
   //   {url: '/custom/300.gif', theme: '', art: ''},
   //   {url: '/custom/thebirds.gif', theme: '/custom/thebirds.mp3', art: ''},

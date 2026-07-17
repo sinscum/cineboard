@@ -1,9 +1,9 @@
 version: '2.4'
 
 services:
-  posterr:
-    image: posterr
-    container_name: posterr
+  cineboard:
+    image: cineboard
+    container_name: cineboard
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -13,8 +13,8 @@ services:
       BASEPATH: ""
       ET: "false"
     volumes:
-      - ~/docker/posterr/custom:/usr/src/app/public/custom
-      - ~/docker/posterr/config:/usr/src/app/config
+      - ~/docker/cineboard/custom:/usr/src/app/public/custom
+      - ~/docker/cineboard/config:/usr/src/app/config
     ports:
       - 9876:3000
 

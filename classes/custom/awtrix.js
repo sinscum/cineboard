@@ -67,7 +67,7 @@ class Awtrix {
       await axios.get(ip + "/api/loop").then(function (response) {
         if (Object.keys(response.data).length > 0) {
           Object.keys(response.data).forEach((app) => {
-            if (app.search(/posterr/i) !== -1) {
+            if (app.search(/cineboard/i) !== -1) {
               axios.post(ip + "/api/custom?name=" + app, null);
               let now = new Date();
               console.log(now.toLocaleString() + " Awtrix Clearing " + app);

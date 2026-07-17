@@ -1,11 +1,11 @@
 #!/bin/bash
-# Script to call posterr api to get display state.
+# Script to call cineboard api to get display state.
 # triggers appropriate on|off for CEC compatible display
 # Requires cec-utils installed on rPi OS
 #
 #
-# Set the url to your Posterr instance
-url=POSTERR_URL
+# Set the url to your CineBoard instance
+url=CINEBOARD_URL
 poll_frequency=5
 
 

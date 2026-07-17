@@ -138,7 +138,7 @@ function startInactivityCheck(element, delay, callbackInactivity, callbackActive
 
   function noConnection() {
     cardHtml = `<div class="container d-flex align-items-center justify-content-center no-content"><div class="d-flex">
-      <div class="settingsLink">Lost connectivity with Posterr server!</br>Attempting to restore connection..</div></div></div>`
+      <div class="settingsLink">Lost connectivity with CineBoard server!</br>Attempting to restore connection..</div></div></div>`
     $(".cardHolder").html(cardHtml);    
     $("body").css("background-color","black");
   }
@@ -182,7 +182,7 @@ function startInactivityCheck(element, delay, callbackInactivity, callbackActive
     }
 
     xhr.onload = () => {
-      // check that there hasn't been rapid a cold restart of posterr that this connection check missed
+      // check that there hasn't been rapid a cold restart of cineboard that this connection check missed
       const res = xhr.response;
       if(res==null && sleeping !== true) noConnection();
       let serverDate = new Date(res.status);
@@ -229,7 +229,7 @@ function startInactivityCheck(element, delay, callbackInactivity, callbackActive
     }
   }
 
-  // call posterr api to get currently generated card sets
+  // call cineboard api to get currently generated card sets
   function getCards(){
     //console.log('getting cards');
     const xhr = new XMLHttpRequest();
@@ -242,10 +242,10 @@ function startInactivityCheck(element, delay, callbackInactivity, callbackActive
     xhr.onload = () => {
       // get JSON response
   //    console.log('got response');
-      const posterr = xhr.response;
-      if((!posterr == null || posterr.globalPage.cards.length !== 0) && sleeping !== "true") {
+      const cineboard = xhr.response;
+      if((!cineboard == null || cineboard.globalPage.cards.length !== 0) && sleeping !== "true") {
         let cardHtml = "";
-        posterr.globalPage.cards.forEach(card => {
+        cineboard.globalPage.cards.forEach(card => {
           cardHtml += card.rendered;
         });
 
@@ -253,8 +253,8 @@ function startInactivityCheck(element, delay, callbackInactivity, callbackActive
         initialLoad();
 
         // check if there is only one card showing and if so, schedule a data refresh after the slide duration period has passed.
-        if(posterr.globalPage.cards.length == 1){
-          setTimeout( getCards, posterr.globalPage.slideDuration );
+        if(cineboard.globalPage.cards.length == 1){
+          setTimeout( getCards, cineboard.globalPage.slideDuration );
         }
       }
       else {
@@ -274,10 +274,10 @@ function startInactivityCheck(element, delay, callbackInactivity, callbackActive
     xhr.send();
 
     xhr.onload = () => {
-      const posterr = xhr.response;
-      if(!posterr == null || posterr.globalPage.cards.length !== 0) {
+      const cineboard = xhr.response;
+      if(!cineboard == null || cineboard.globalPage.cards.length !== 0) {
         let cardHtml = "";
-        cardHtml = posterr.globalPage.cards[0].rendered.replace("item active","item");
+        cardHtml = cineboard.globalPage.cards[0].rendered.replace("item active","item");
         $("#1").html(cardHtml);
       }
     }

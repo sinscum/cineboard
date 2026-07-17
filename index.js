@@ -52,7 +52,7 @@ if(args.length == 2){
 }
 
 console.log("-------------------------------------------------------");
-console.log(" POSTERR - Your media display");
+console.log(" CINEBOARD - Your media display");
 console.log(" Developed by Matt Petersen - Brisbane Australia");
 console.log(" ");
 console.log(" Version: " + pjson.version);
@@ -552,7 +552,7 @@ async function loadNowScreening() {
           'scrollSpeed': 60,
           'progress': card.progressPercent,
           'progressC': appColour,
-          'unique': "posterr:" + card.playerIP + ":" + card.playerDevice + ":" + card.title.toUpperCase().replaceAll("’","")
+          'unique': "cineboard:" + card.playerIP + ":" + card.playerDevice + ":" + card.title.toUpperCase().replaceAll("’","")
           };
 
           try{
@@ -1365,7 +1365,7 @@ async function startup(clearCache) {
       console.log("");
     }
     else {
-      console.log("*** You are running the latest version of Posterr ***");
+      console.log("*** You are running the latest version of CineBoard ***");
       console.log("");
     }
   }
@@ -1520,7 +1520,7 @@ app.get(BASEURL + "/getcards", (req, res) => {
   res.send({ globalPage: globalPage, baseUrl: BASEURL }); // get generated cards
 });
 
-// Used by the web client to check connection status to Posterr, and also to determine if there was a cold start that was missed
+// Used by the web client to check connection status to CineBoard, and also to determine if there was a cold start that was missed
 
 app.get(BASEURL + "/conncheck", (req, res) => {
   res.send({ "status": cold_start_time, "sleep": sleep });

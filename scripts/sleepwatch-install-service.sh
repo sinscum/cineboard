@@ -12,15 +12,15 @@ fi
 # run initial install as standard user
 if [ $EUID -ne 0 ]; then
     echo
-    echo "Posterr CEC display service install"
+    echo "CineBoard CEC display service install"
     echo "-----------------------------------"
     echo
     # gather parameters
     working_dir=$(pwd)
     user=$USER
-    read -p "What is the full url for your posterr instance? 
+    read -p "What is the full url for your cineboard instance? 
 (eg http://192.168.1.134:9876) " url
-    echo "Posterr URL: ${url}"
+    echo "CineBoard URL: ${url}"
     echo "User name: ${user}"
     echo "Working directory: ${working_dir}"
     echo  
@@ -48,13 +48,13 @@ else
     # modify the service template prior to istallation
     sed -e "s|WORKING_DIRECTORY|${working_dir}|g" \
     -e "s|USER|${user}|g" \
-    "$working_dir/posterr-watcher.service" > "/etc/systemd/system/posterr-watcher.service"
+    "$working_dir/cineboard-watcher.service" > "/etc/systemd/system/cineboard-watcher.service"
     echo "Updated service template and copied to /etc/systemd/system folder"
     echo
 
-    sed -e "s|POSTERR_URL|${url}|g" \
+    sed -e "s|CINEBOARD_URL|${url}|g" \
     "$working_dir/sleepwatch.template" > "$working_dir/sleepwatch.sh"
-    echo "Updated sleepwatch.sh script with Posterr url"
+    echo "Updated sleepwatch.sh script with CineBoard url"
     echo
 
     # update script permissions
@@ -68,10 +68,10 @@ else
 
     # install service
     sudo systemctl daemon-reload
-    sudo systemctl enable posterr-watcher.service
-    sudo systemctl start posterr-watcher.service
+    sudo systemctl enable cineboard-watcher.service
+    sudo systemctl start cineboard-watcher.service
     echo "monitor service by running:
-sudo systemctl status posterr-watcher.service"
+sudo systemctl status cineboard-watcher.service"
     echo 
     echo "installation done"
 fi
