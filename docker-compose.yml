@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   cineboard:
-    image: sinscum/cineboard:latest
+    image: ghcr.io/sinscum/cineboard:latest
     container_name: cineboard
     build:
       context: .

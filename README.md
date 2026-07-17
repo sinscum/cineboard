@@ -65,7 +65,7 @@ version: "3.8"
 
 services:
   CineBoard:
-    image: sinscum/cineboard:latest
+    image: ghcr.io/sinscum/cineboard:latest
     container_name: CineBoard
     environment:
       TZ: America/New_York
@@ -90,7 +90,7 @@ docker run -d --name CineBoard \
 -v ./docker/CineBoard/custom:/usr/src/app/public/custom \
 -e TZ=America/New_York \
 --restart=always \
-sinscum/cineboard:latest
+ghcr.io/sinscum/cineboard:latest
 ```
 
 #### Details
